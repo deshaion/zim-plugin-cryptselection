@@ -104,7 +104,7 @@ class MainWindowExtension(WindowExtension):
                 encrypt = False
                 cryptcmd = self.preferences['decryption_command'].split(" ")
             newtext = None
-            p = Popen(cryptcmd, stdin=PIPE, stdout=PIPE)
+            p = Popen(cryptcmd, stdin=PIPE, stdout=PIPE, shell=True)
             newtext, err = p.communicate(input=sel_text)
             if p.returncode == 0:
                 # replace selection only if crypt command was successful
